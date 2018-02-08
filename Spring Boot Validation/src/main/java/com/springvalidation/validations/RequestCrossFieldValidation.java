@@ -28,7 +28,6 @@ public @interface RequestCrossFieldValidation {
 
 	@Target({ ElementType.TYPE, ElementType.ANNOTATION_TYPE })
 	@Retention(RetentionPolicy.RUNTIME)
-
 	@Documented
 	@interface List {
 		RequestCrossFieldValidation[] value();

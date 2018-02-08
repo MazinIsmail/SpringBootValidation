@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
+import com.springvalidation.domain.ARequest;
 import com.springvalidation.domain.StoreCrossRequest;
 import com.springvalidation.domain.StoreListRequest;
 import com.springvalidation.domain.StoreRequest;
@@ -39,6 +40,13 @@ public class SampleController {
 
 	@PostMapping(value = "/people")
 	public ResponseEntity<StoreResponse> store(@Valid @RequestBody final StoreRequest request) {
+		StoreResponse response = new StoreResponse();
+		response.setSuccess(true);
+		return new ResponseEntity<>(response, HttpStatus.OK);
+	}
+
+	@PostMapping(value = "/arequest")
+	public ResponseEntity<StoreResponse> store(@Valid @RequestBody final ARequest request) {
 		StoreResponse response = new StoreResponse();
 		response.setSuccess(true);
 		return new ResponseEntity<>(response, HttpStatus.OK);
